@@ -11,8 +11,13 @@
       <rect rx="3" ry="3" x="57" y="56" width="14" height="16" fill="black"/>
       <rect rx="5" ry="5" x="87" y="56" width="14" height="16" fill="black"/>
     </mask>
+
+    <!-- 本体の背景グラデーション -->
+    <!-- (cx,cy)を中心点とした半径rの円の中で、焦点(fx,fy)から色が広がる -->
     <radialGradient id="gradient" gradientUnits="userSpaceOnUse" cx="94" cy="64" r="60" fx="80" fy="20">
+      <!-- 焦点の色 -->
       <stop offset="0%" stop-color="#a6a5c4" />
+      <!-- 外側の色 -->
       <stop offset="100%" stop-color="#203744" />
     </radialGradient>
    </defs>
