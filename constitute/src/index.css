@@ -58,4 +58,10 @@
     font-weight: 700;
     font-size: 1.14em;
   }
+
+  @keyframes highlight-fade {
+    0% { background-color: rgba(250, 240, 171, 0.7); }
+    60% { background-color: rgba(250, 240, 171, 0.7); }
+    100% { background-color: transparent; }
+  }
 }

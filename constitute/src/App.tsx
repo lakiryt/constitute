@@ -25,53 +25,57 @@ function App() {
   }
 
   return (
-    <div className="page-shell">
+    <div className="page-shell scroll-smooth">
       <div className="vertical-text">
         <h1 className="text-3xl font-bold w-full flex items-center justify-center md:w-auto md:my-[5ic] md:px-[2ic]">日本国憲法案</h1>
         <TOC structure={documentStructure} />
         <div>
-        <h2>前文</h2>
-        <p className="indent-[1ic] hover:bg-gray-100 rounded transition-colors">
-          {typedConstitution.preamble}
-        </p>
-      </div>
-      <div>
-        {typedConstitution.chapters.map((chapter, chapterIndex) => (
-          <div key={chapterIndex}>
-            <h2>第{formatJapaneseNumeral(chapterIndex + 1)}部 {chapter.title}</h2>
-            {'sections' in chapter ? (
-              <div>
-                {chapter.sections.map((section, sectionIndex) => (
-                  <div key={sectionIndex}>
-                    <h3>第{formatJapaneseNumeral(sectionIndex + 1)}章 {section.title}</h3>
-                    <ul className="article-list">
-                      {section.articles.map((article, articleIndex) => (
-                        <Article
-                          key={articleIndex}
-                          article={article}
-                          number={getArticleNumber(chapterIndex, articleIndex, sectionIndex)}
-                        />
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <ul className="article-list">
-                {chapter.articles.map((article, articleIndex) => (
-                  <Article
-                    key={articleIndex}
-                    article={article}
-                    number={getArticleNumber(chapterIndex, articleIndex)}
-                  />
-                ))}
-              </ul>
-            )}
-          </div>
-        ))}
+          <h2>前文</h2>
+          <p className="indent-[1ic] hover:bg-gray-100 rounded transition-colors">
+            {typedConstitution.preamble}
+          </p>
+        </div>
+        <div>
+          {typedConstitution.chapters.map((chapter, chapterIndex) => (
+            <div key={chapterIndex}>
+              <h2 id={`chapter-${chapterIndex + 1}`} className="target:animate-[highlight-fade_3s_ease-out]">
+                第{formatJapaneseNumeral(chapterIndex + 1)}部 {chapter.title}
+              </h2>
+              {'sections' in chapter ? (
+                <div>
+                  {chapter.sections.map((section, sectionIndex) => (
+                    <div key={sectionIndex}>
+                      <h3 id={`chapter-${chapterIndex + 1}-section-${sectionIndex + 1}`} className="target:animate-[highlight-fade_3s_ease-out]">
+                        第{formatJapaneseNumeral(sectionIndex + 1)}章 {section.title}
+                      </h3>
+                      <ul>
+                        {section.articles.map((article, articleIndex) => (
+                          <Article
+                            key={articleIndex}
+                            article={article}
+                            number={getArticleNumber(chapterIndex, articleIndex, sectionIndex)}
+                          />
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <ul>
+                  {chapter.articles.map((article, articleIndex) => (
+                    <Article
+                      key={articleIndex}
+                      article={article}
+                      number={getArticleNumber(chapterIndex, articleIndex)}
+                    />
+                  ))}
+                </ul>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
-  </div>
   )
 }
 
