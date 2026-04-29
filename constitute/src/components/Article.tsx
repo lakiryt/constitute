@@ -12,13 +12,13 @@ export default function Article({ article, number }: ArticleProps) {
   const areParagraphsNumbered = article.paragraphs.length > 1
 
   return (
-    <li className="my-[1ic]">
+    <li className="my-[1ic] hover:bg-gray-100 rounded transition-colors">
       <p className="text-sm break-after-avoid">〔{article.title}〕</p>
-      <p className="pt-[1ic] -indent-[1ic]">
-        <strong>第{formatJapaneseNumeral(number)}条</strong>{areParagraphsNumbered && formatEncircledNumber(1) + '　'}{firstParagraph}
+      <p className="pt-[1ic] -indent-[1ic] whitespace-pre-wrap">
+        <strong>第{formatJapaneseNumeral(number)}条</strong>{areParagraphsNumbered && formatEncircledNumber(1)}　{firstParagraph}
       </p>
       {restParagraphs.map((paragraph, paraIndex) => (
-        <p key={paraIndex} className="pt-[1ic] -indent-[1ic]">
+        <p key={paraIndex} className="pt-[1ic] -indent-[1ic] whitespace-pre-wrap">
           {formatEncircledNumber(paraIndex + 2)}　{paragraph}
         </p>
       ))}

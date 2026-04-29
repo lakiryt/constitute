@@ -30,7 +30,9 @@ function App() {
       <TOC structure={documentStructure} />
       <div>
         <h2>前文</h2>
-        <p className="indent-[1ic]">{typedConstitution.preamble}</p>
+        <p className="indent-[1ic] hover:bg-gray-100 rounded transition-colors">
+          {typedConstitution.preamble}
+        </p>
       </div>
       <div>
         {typedConstitution.chapters.map((chapter, chapterIndex) => (
