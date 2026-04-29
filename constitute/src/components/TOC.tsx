@@ -7,7 +7,7 @@ type TOCProps = {
 
 export default function TOC({ structure }: TOCProps) {
   return (
-    <nav>
+    <nav className="vertical-text">
       <h2>目次</h2>
       <ul className="pt-[1ic]">
         {structure.chapters.map((chapter, chapterIndex) => {
