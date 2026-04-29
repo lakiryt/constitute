@@ -1,7 +1,7 @@
 // Base content types
 type Paragraphs = string[]
 
-type Article = {
+export type Article = {
     title: string
     paragraphs: Paragraphs
 }

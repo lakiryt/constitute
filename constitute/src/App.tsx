@@ -1,5 +1,6 @@
 import constitution from './assets/constitution.json'
 import type { Constitution } from './types/constitution'
+import Article from './components/Article'
 
 const typedConstitution = constitution as Constitution
 
@@ -22,14 +23,11 @@ function App() {
                     <h4>第{sectionIndex + 1}章: {section.section}</h4>
                     <ul>
                       {section.articles.map((article, articleIndex) => (
-                        <li key={articleIndex}>
-                          <strong>（{article.title}）第{articleIndex + 1}条</strong>
-                          <ul>
-                            {article.paragraphs.map((paragraph, paraIndex) => (
-                              <li key={paraIndex}>{paragraph}</li>
-                            ))}
-                          </ul>
-                        </li>
+                        <Article
+                          key={articleIndex}
+                          article={article}
+                          number={articleIndex + 1}
+                        />
                       ))}
                     </ul>
                   </div>
@@ -38,14 +36,11 @@ function App() {
             ) : (
               <ul>
                 {chapter.articles.map((article, articleIndex) => (
-                  <li key={articleIndex}>
-                    <strong>（{article.title}）第{articleIndex + 1}条</strong>
-                    <ul>
-                      {article.paragraphs.map((paragraph, paraIndex) => (
-                        <li key={paraIndex}>{paragraph}</li>
-                      ))}
-                    </ul>
-                  </li>
+                  <Article
+                    key={articleIndex}
+                    article={article}
+                    number={articleIndex + 1}
+                  />
                 ))}
               </ul>
             )}
