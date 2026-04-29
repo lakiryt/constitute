@@ -1,17 +1,20 @@
 @import "tailwindcss";
 
+@theme {
+    --font-sans: "Noto Sans JP", sans-serif;
+    --font-serif: "Noto Serif JP", serif;
+}
+
 @layer base {
   html,
   body {
     min-height: 100vh;
     margin: 0;
     padding: 0;
-    font-family: "Yu Mincho", "Yu Mincho Medium", "Yu Mincho Demibold", "Yu Mincho Bold", "Yu Mincho Heavy", serif;
   }
 }
 
 @layer utilities {
-  /* Vertical text layout utilities */
   .vertical-text {
     height: 100vh;
     width: 100vw;
@@ -20,52 +23,23 @@
     padding: 1.5rem;
     box-sizing: border-box;
 
-    /* Vertical writing mode */
     writing-mode: vertical-rl;
     text-orientation: upright;
     direction: ltr;
 
-    /* Column layout */
     column-width: 20ch;
     column-gap: 2rem;
     column-rule: 1px solid rgba(0, 0, 0, 0.1);
     column-fill: auto;
     line-height: 1.4;
+
+    font-family: var(--font-serif);
   }
 
-  /* List styling */
-  .vertical-text ul {
-    list-style: none;
+  .vertical-text h2,
+  .vertical-text h3 {
     margin: 0;
-    padding: 0;
-  }
-
-  .vertical-text li {
-    display: block;
-  }
-
-  /* Typography */
-  .vertical-text h1,
-  .vertical-text h2,
-  .vertical-text h4,
-  .vertical-text strong {
+    padding: 0.5em 0;
     font-weight: bold;
-  }
-
-  .vertical-text h1,
-  .vertical-text h2,
-  .vertical-text h4 {
-    display: inline-block;
-    margin: 0 0 1rem 0;
-    break-after: avoid-column;
-    -webkit-column-break-after: avoid;
-    page-break-after: avoid;
-  }
-
-  /* Dark mode support */
-  @media (prefers-color-scheme: dark) {
-    .vertical-text {
-      column-rule-color: rgba(255, 255, 255, 0.1);
-    }
   }
 }
