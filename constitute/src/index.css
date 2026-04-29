@@ -36,10 +36,16 @@
     font-family: var(--font-serif);
   }
 
-  .vertical-text h2,
+  .vertical-text h2 {
+    margin-block-start: 4em;
+    margin-block-end: 1.9em;
+    font-weight: 700;
+    font-size: 1.14em;
+    padding-top: 2em;
+  }
+
   .vertical-text h3 {
-    margin: 0;
-    padding: 0.5em 0;
-    font-weight: bold;
+    font-weight: 700;
+    font-size: 1.14em;
   }
 }

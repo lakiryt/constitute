@@ -26,11 +26,11 @@ function App() {
 
   return (
     <div className="vertical-text">
-      <h1 className="text-2xl font-bold my-[5ic]">日本国憲法案</h1>
+      <h1 className="text-3xl font-bold my-[5ic] px-[2ic]">日本国憲法案</h1>
       <TOC structure={documentStructure} />
       <div>
         <h2>前文</h2>
-        <p>{typedConstitution.preamble}</p>
+        <p className="indent-[1ic]">{typedConstitution.preamble}</p>
       </div>
       <div>
         {typedConstitution.chapters.map((chapter, chapterIndex) => (
@@ -40,7 +40,7 @@ function App() {
               <div>
                 {chapter.sections.map((section, sectionIndex) => (
                   <div key={sectionIndex}>
-                    <h4>第{formatJapaneseNumeral(sectionIndex + 1)}章 {section.title}</h4>
+                    <h3>第{formatJapaneseNumeral(sectionIndex + 1)}章 {section.title}</h3>
                     <ul className="article-list">
                       {section.articles.map((article, articleIndex) => (
                         <Article
