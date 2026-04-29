@@ -26,7 +26,7 @@ function App() {
 
   return (
     <div className="vertical-text">
-      <h1 className="text-3xl font-bold my-[5ic] px-[2ic]">日本国憲法案</h1>
+      <h1 className="text-3xl font-bold w-full flex items-center justify-center md:w-auto md:my-[5ic] md:px-[2ic]">日本国憲法案</h1>
       <TOC structure={documentStructure} />
       <div>
         <h2>前文</h2>
