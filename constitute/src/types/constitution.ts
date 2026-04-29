@@ -1,22 +1,24 @@
-// Base content types
+// 条文の段落
 type Paragraphs = string[]
 
+// 条文
 export type Article = {
     title: string
     paragraphs: Paragraphs
 }
 
-// Hierarchical structure types
+// 章
 type Section = {
-    section: string  // Note: JSON uses "section" instead of "title"
+    title: string
     articles: Article[]
 }
 
+// 部
 type Chapter = {
     title: string
 } & (
-    | { sections: Section[] }  // Chapter with sections
-    | { articles: Article[] }  // Chapter with direct articles
+    | { sections: Section[] }  // 章からなる部
+    | { articles: Article[] }  // 直接条文が並ぶ部
 )
 
 export type Constitution = {

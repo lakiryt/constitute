@@ -36,7 +36,7 @@
             "title": "総則",
             "sections": [
                 {
-                    "section": "基本権",
+                    "title": "基本権",
                     "articles": [
                         {
                             "title": "基本権の享有",
@@ -254,7 +254,7 @@
                 }
                 ,
                 {
-                    "section": "平和と環境",
+                    "title": "平和と環境",
                     "articles": [
                         {
                             "title": "戦争の放棄及び戦力の制限",
@@ -318,7 +318,7 @@
                 }
                 ,
                 {
-                    "section": "公正な民主主義",
+                    "title": "公正な民主主義",
                     "articles": [
                         {
                             "title": "実質的法治主義",
@@ -437,7 +437,7 @@
             "title": "機関",
             "sections": [
                 {
-                    "section": "天皇",
+                    "title": "天皇",
                     "articles": [
                         {
                             "title": "天皇の地位と主権在民",
@@ -485,7 +485,7 @@
                 }
                 ,
                 {
-                    "section": "国会",
+                    "title": "国会",
                     "articles": [
                         {
                             "title": "国会の地位",
@@ -639,7 +639,7 @@
                 }
                 ,
                 {
-                    "section": "内閣",
+                    "title": "内閣",
                     "articles": [
                         {
                             "title": "行政権の帰属",
@@ -712,7 +712,7 @@
                 }
                 ,
                 {
-                    "section": "司法",
+                    "title": "司法",
                     "articles": [
                         {
                             "title": "司法権の機関と裁判官の職務上の独立",
@@ -773,7 +773,7 @@
                 }
                 ,
                 {
-                    "section": "地方自治",
+                    "title": "地方自治",
                     "articles": [
                         {
                             "title": "地方自治の本旨の確保",
