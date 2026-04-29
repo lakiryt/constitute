@@ -10,7 +10,7 @@ const documentStructure = buildDocumentStructure(typedConstitution)
 
 function App() {
   return (
-    <div>
+    <div className="vertical-text">
       <h1>日本国憲法案</h1>
       <TOC structure={documentStructure} />
       <div>
