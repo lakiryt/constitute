@@ -1,10 +1,13 @@
 import TOC from './TOC'
 import type { ConstitutionStructure } from '../types/structure'
-import { useEffect, useState } from 'react'
+import type { MouseEvent as ReactMouseEvent } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 export default function Header({ structure }: { structure: ConstitutionStructure }) {
   const [visible, setVisible] = useState(false)
   const [showTOC, setShowTOC] = useState(false)
+  const headerRef = useRef<HTMLElement | null>(null)
+  const tocRef = useRef<HTMLDivElement | null>(null)
 
   // スクロール位置を監視して、ヘッダーの表示/非表示を切り替える
   useEffect(() => {
@@ -17,9 +20,35 @@ export default function Header({ structure }: { structure: ConstitutionStructure
     return () => shell.removeEventListener('scroll', onScroll)
   }, [])
 
+  useEffect(() => {
+    if (!showTOC) return
+
+    function handleClickOutside(event: globalThis.MouseEvent) {
+      const target = event.target as Node
+      if (
+        headerRef.current?.contains(target) ||
+        tocRef.current?.contains(target)
+      ) {
+        return
+      }
+      setShowTOC(false)
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [showTOC])
+
+  function handleTOCClick(e: ReactMouseEvent<HTMLDivElement>) {
+    const anchor = (e.target as HTMLElement).closest('a')
+    if (anchor) {
+      setShowTOC(false)
+    }
+  }
+
   return (
     <>
       <header
+        ref={headerRef}
         className={`fixed left-1/2 top-3 transform -translate-x-1/2 transition-all duration-500 z-50 flex items-center pointer-events-auto
           ${visible ? 'translate-y-0' : '-translate-y-32'}
           bg-white shadow-lg rounded-full px-8 py-2 w-[min(90vw,900px)] h-16`}
@@ -36,7 +65,11 @@ export default function Header({ structure }: { structure: ConstitutionStructure
         </button>
       </header>
       {visible && showTOC && (
-        <div className="[writing-mode:vertical-rl] font-serif fixed left-1/2 top-20 transform -translate-x-1/2 z-40 bg-white/95 rounded-2xl shadow-xl px-8 py-6 w-[min(90vw,900px)] max-h-[60vh] overflow-y-auto border border-gray-200">
+        <div
+          ref={tocRef}
+          onClick={handleTOCClick}
+          className="[writing-mode:vertical-rl] font-serif fixed left-1/2 top-20 transform -translate-x-1/2 z-40 bg-white/95 rounded-2xl shadow-xl px-8 py-6 w-[min(90vw,900px)] max-h-[60vh] overflow-y-auto border border-gray-200"
+        >
           <TOC structure={structure} />
         </div>
       )}
