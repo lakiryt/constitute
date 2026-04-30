@@ -2,9 +2,11 @@ import constitution from './assets/constitution.json'
 import type { Constitution } from './types/constitution'
 import { buildDocumentStructure } from './utils/structure'
 import { formatJapaneseNumeral } from './utils/japaneseNumber'
+import { Route, Routes } from 'react-router-dom'
 import Article from './components/Article'
 import TOC from './components/TOC'
 import Header from './components/Header'
+import CommentaryPanel from './routes/commentary/page'
 
 const typedConstitution = constitution as Constitution
 
@@ -80,6 +82,10 @@ function App() {
           </div>
         </div>
       </div>
+
+      <Routes>
+        <Route path="/commentary/:commentaryId" element={<CommentaryPanel />} />
+      </Routes>
     </>
   )
 }
