@@ -29,11 +29,12 @@ function App() {
     <>
       <Header structure={documentStructure} />
       <div className="page-shell scroll-smooth">
-        <div className="vertical-text">
+        <div className="vertical-text vertical-columns">
           <h1 className="text-3xl font-bold w-full flex items-center justify-center md:w-auto md:my-[5ic] md:px-[2ic]">日本国憲法案</h1>
+          <h2>目次</h2>
           <TOC structure={documentStructure} />
           <div>
-            <h2>前文</h2>
+            <h2 id="preamble" className="target:animate-[highlight-fade_3s_ease-out]">前文</h2>
             <p className="indent-[1ic] hover:bg-gray-100 rounded transition-colors">
               {typedConstitution.preamble}
             </p>

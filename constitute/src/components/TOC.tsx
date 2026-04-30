@@ -7,9 +7,9 @@ type TOCProps = {
 
 export default function TOC({ structure }: TOCProps) {
   return (
-    <nav className="vertical-text">
-      <h2>目次</h2>
+    <nav>
       <ul className="pt-[1ic]">
+        <li><a href="#preamble" className="underline text-decoration-gray-600 hover:text-gray-800 focus:text-gray-800">前文</a></li>
         {structure.chapters.map((chapter, chapterIndex) => {
           const chapterId = `chapter-${chapterIndex + 1}`
           return (
@@ -27,7 +27,7 @@ export default function TOC({ structure }: TOCProps) {
                     const sectionId = `${chapterId}-section-${sectionIndex + 1}`
                     return (
                       <li key={sectionIndex}>
-                        <span>第{formatJapaneseNumeral(sectionIndex + 1)}章</span>
+                        <span>第{formatJapaneseNumeral(sectionIndex + 1)}章　</span>
                         <a
                           href={`#${sectionId}`}
                           className="underline text-decoration-gray-600 hover:text-gray-800 focus:text-gray-800"
