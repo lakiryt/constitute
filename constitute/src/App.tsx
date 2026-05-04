@@ -2,7 +2,7 @@ import constitution from './assets/constitution.json'
 import type { Constitution } from './types/constitution'
 import { buildDocumentStructure } from './utils/structure'
 import { formatJapaneseNumeral } from './utils/japaneseNumber'
-import { Route, Routes } from 'react-router-dom'
+import { Link, Route, Routes } from 'react-router-dom'
 import Article from './components/Article'
 import TOC from './components/TOC'
 import Header from './components/Header'
@@ -37,7 +37,7 @@ function App() {
           <h2>目次</h2>
           <TOC structure={documentStructure} />
           <div>
-            <h2 id="preamble" className="target:animate-[highlight-fade_3s_ease-out]">前文</h2>
+            <h2 id="preamble" className="target:animate-[highlight-fade_3s_ease-out]"><Link to="/commentary/preamble">前文 <span className="text-xs font-sans font-normal bg-slate-200 text-slate-800 px-2 py-1 rounded">解説</span></Link></h2>
             <p className="indent-[1ic] hover:bg-gray-100 rounded transition-colors">
               {typedConstitution.preamble}
             </p>
