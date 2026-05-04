@@ -8,7 +8,7 @@ type TOCProps = {
 export default function TOC({ structure }: TOCProps) {
   return (
     <nav>
-      <ul className="pt-[1ic]">
+      <ul className="-indent-[2ic] pt-[3ic]"> {/* １段落目以外をインデントしたいので、まず１段落目を２字引き上げて、２字分のpaddingで相殺する。別件で１字分のpaddingを足す。 */}
         <li><a href="#preamble" className="underline text-decoration-gray-600 hover:text-gray-800 focus:text-gray-800">前文</a></li>
         {structure.chapters.map((chapter, chapterIndex) => {
           const chapterId = `chapter-${chapterIndex + 1}`
@@ -22,7 +22,7 @@ export default function TOC({ structure }: TOCProps) {
                 {chapter.title}
               </a>
               {'sections' in chapter ? (
-                <ul className="pt-[3ic] -indent-[2ic]">
+                <ul className="pt-[1ic]">
                   {chapter.sections.map((section, sectionIndex) => {
                     const sectionId = `${chapterId}-section-${sectionIndex + 1}`
                     return (
