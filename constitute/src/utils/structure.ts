@@ -53,3 +53,19 @@ export const buildDocumentStructure = (
     }),
   }
 }
+
+export const getArticleNumber =
+(structure: ConstitutionStructure) =>
+(
+  chapterIndex: number,
+  articleIndex: number,
+  sectionIndex?: number
+) => {
+  const chapterStructure = structure.chapters[chapterIndex]
+
+  if (sectionIndex !== undefined && 'sections' in chapterStructure) {
+    return chapterStructure.sections[sectionIndex].articleOffset + articleIndex + 1
+  }
+
+  return chapterStructure.articleOffset + articleIndex + 1
+}
