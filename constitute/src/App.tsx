@@ -3,6 +3,7 @@ import type { Constitution } from './types/constitution'
 import { buildDocumentStructure } from './utils/structure'
 import { formatJapaneseNumeral } from './utils/japaneseNumber'
 import { Link, Route, Routes } from 'react-router-dom'
+import { SpeedInsights } from '@vercel/speed-insights/react'
 import Article from './components/Article'
 import TOC from './components/TOC'
 import Header from './components/Header'
@@ -87,6 +88,7 @@ function App() {
       <Routes>
         <Route path="/commentary/:commentaryId" element={<CommentaryPanel />} />
       </Routes>
+      <SpeedInsights />
     </>
   )
 }
