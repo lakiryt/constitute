@@ -2,6 +2,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
+import rehypeExternalLinks from 'rehype-external-links';
 import Article from '../../components/Article'
 
 export default function CommentaryPanel() {
@@ -52,8 +53,13 @@ export default function CommentaryPanel() {
             }} number={404} />
           </div>
         ) : (
-          <div className="prose prose-slate max-w-none">
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+          <div className="commentary prose prose-slate max-w-none">
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              rehypePlugins={[[rehypeExternalLinks, {
+                target: '_blank',
+                rel: 'noopener noreferrer',
+              }]]}>
               {markdown}
             </ReactMarkdown>
           </div>

@@ -64,4 +64,11 @@
     60% { background-color: rgba(250, 240, 171, 0.7); }
     100% { background-color: transparent; }
   }
+
+  .commentary a {
+    color: inherit;
+    font-weight: inherit;
+    text-decoration: underline lightgray;
+    text-underline-offset: 3px;
+  }
 }
