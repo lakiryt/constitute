@@ -16,7 +16,7 @@ function Main({ constitution, structure }: { constitution: Constitution; structu
         <TOC structure={structure} />
         <div>
           <h2 id="preamble" className="target:animate-[highlight-fade_3s_ease-out]">
-            <CommentaryBadge commentaryId="preamble" />
+            <span>前文</span> <CommentaryBadge commentaryId="preamble" />
           </h2>
           <p className="indent-[1ic] hover:bg-gray-100 rounded transition-colors">
             {constitution.preamble}
