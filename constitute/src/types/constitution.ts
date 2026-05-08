@@ -5,6 +5,7 @@ type Paragraphs = string[]
 export type Article = {
     title: string
     paragraphs: Paragraphs
+    commentaryId?: string
 }
 
 // 章

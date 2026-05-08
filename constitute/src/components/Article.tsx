@@ -1,6 +1,7 @@
 import type { Article as ArticleType } from '../types/constitution'
 import { formatJapaneseNumeral } from '../utils/japaneseNumber'
 import { formatEncircledNumber } from '../utils/encircledNumber'
+import CommentaryBadge from './CommentaryBadge'
 
 type ArticleProps = {
   article: ArticleType
@@ -13,7 +14,9 @@ export default function Article({ article, number }: ArticleProps) {
 
   return (
     <li className="my-[1ic] hover:bg-gray-100 rounded transition-colors">
-      <p className="text-sm break-after-avoid">〔{article.title}〕</p>
+      <p className="text-sm break-after-avoid">〔{article.title}〕{article.commentaryId &&
+        <CommentaryBadge commentaryId={article.commentaryId} />
+      }</p>
       <p className="pt-[1ic] -indent-[1ic] whitespace-pre-wrap">
         <strong>第{formatJapaneseNumeral(number)}条</strong>{areParagraphsNumbered && formatEncircledNumber(1)}　{firstParagraph}
       </p>

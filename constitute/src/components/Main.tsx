@@ -1,10 +1,10 @@
 import type { Constitution } from '../types/constitution'
 import type { ConstitutionStructure } from '../types/structure'
 import { formatJapaneseNumeral } from '../utils/japaneseNumber'
-import { Link } from 'react-router-dom'
 import Article from '../components/Article'
 import TOC from '../components/TOC'
 import { getArticleNumber } from '../utils/structure'
+import CommentaryBadge from './CommentaryBadge'
 
 function Main({ constitution, structure }: { constitution: Constitution; structure: ConstitutionStructure }) {
   return (
@@ -15,7 +15,9 @@ function Main({ constitution, structure }: { constitution: Constitution; structu
         <h2>目次</h2>
         <TOC structure={structure} />
         <div>
-          <h2 id="preamble" className="target:animate-[highlight-fade_3s_ease-out]"><Link to="/commentary/preamble">前文 <span className="text-xs font-sans font-normal bg-slate-200 text-slate-800 px-2 py-1 rounded">解説</span></Link></h2>
+          <h2 id="preamble" className="target:animate-[highlight-fade_3s_ease-out]">
+            <CommentaryBadge commentaryId="preamble" />
+          </h2>
           <p className="indent-[1ic] hover:bg-gray-100 rounded transition-colors">
             {constitution.preamble}
           </p>
