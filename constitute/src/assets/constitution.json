@@ -446,6 +446,7 @@
                         }
                         ,
                         {
+                            "commentaryId": "imperial-succession",
                             "title": "皇位の世襲",
                             "paragraphs": ["皇位は、世襲のものであって、国会の議決した皇室典範の定めるところにより、これを継承する。"]
                         }
