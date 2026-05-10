@@ -23,6 +23,8 @@ type Chapter = {
 )
 
 export type Constitution = {
+    title: string
+    pretext?: string
     preamble: string
     chapters: Chapter[]
 }

@@ -10,8 +10,8 @@ function Main({ constitution, structure }: { constitution: Constitution; structu
   return (
     <div className="page-shell scroll-smooth">
       <div className="vertical-text vertical-columns">
-        <h1 className="text-3xl font-bold w-full flex items-center justify-center md:w-auto md:my-[5ic] md:px-[2ic]">日本国憲法案</h1>
-        <p className="text-right">令和六年五月十二日<br/>最終更新　令和七年八月十一日</p>
+        <h1 className="text-3xl font-bold w-full flex items-center justify-center md:w-auto md:my-[5ic] md:px-[2ic]">{constitution.title}</h1>
+        <p className="text-right whitespace-pre-wrap">{constitution.pretext}</p>
         <h2>目次</h2>
         <TOC structure={structure} />
         <div>
